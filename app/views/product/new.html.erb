@@ -1,0 +1,66 @@
+
+<div class="row">
+    <%= render "/shared/nav" %>
+</div>
+<div  class="row">
+  <%= image_tag("shopping2.jpg", size: "1370x520") %>
+  <div class="col-sm-10 centered">
+    <div class="card mx-auto mt-5" style="width: 23rem; background: #8ab3f9;">
+      <h4 class="card-title mx-auto mt-3">Add New Product</h4>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 col-md-offset-3">
+            <%= form_for(:product, url: product_renew_path) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                  <%= f.label :CategoryName %>
+                </div>
+                <div class="col-md-8">
+                  <%= @category.cname %>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <%= f.label :ProductName %>
+                </div>
+                <div class="col-md-8">
+                  <%= f.text_field :pname, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <%= f.label :Image %>
+                </div>
+                <div class="col-md-8">
+                  <%= f.file_field :image, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <%= f.label :Price %>
+                </div>
+                <div class="col-md-8">
+                  <%= f.text_field :price, class: 'form-control' %>
+                </div>
+              </div>
+                <%= f.submit "Register", class: "btn btn-primary ms-5 mt-3"%>
+                <%= f.submit "Cancel", class: "btn btn-primary ms-4 mt-3"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.centered {
+  position: absolute;
+  position: fixed;
+  top: 15%;
+  left: 12%;
+}
+</style>
+
+

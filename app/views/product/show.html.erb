@@ -1,0 +1,33 @@
+<div class="row">
+    <%= render "/shared/loginnav" %>
+</div>
+<div style="overflow-x: hidden">
+  <div calss ="row">
+      <div class="col-sm-10 centered">
+        <table  class="table table-striped">                
+          <thead>
+            <tr>
+              <th>Category Name</th>
+            </tr>
+          </thead>  
+          <% @product.each do |data| %>       
+          <tr>
+            <td><label><b><%= data.pname %></b></label></td>
+            <td><label><b><%= data.image %></b></label></td>
+            <td><%= link_to "edit" %></td>
+            <td><%= link_to 'Destroy', product_delete_path(data), method: :delete, data: { confirm: 'Are You sure?' } %></td>
+            <td><%= link_to "delete", product_delete_path(data)%></td>
+          </tr>
+          <% end %>                      
+        </table>  
+      </div>
+  </div>
+</div>
+<style>
+.centered {
+  position: absolute;
+  position: fixed;
+  top: 15%;
+  left: 5%;
+}
+</style>
